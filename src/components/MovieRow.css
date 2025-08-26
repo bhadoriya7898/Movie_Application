@@ -1,0 +1,28 @@
+.movie-row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.movie-row::-webkit-scrollbar {
+  display: none; /* hide scrollbar */
+}
+
+.movie-card {
+  min-width: 150px;
+  max-width: 150px;
+  border: none;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.movie-poster {
+  border-radius: 8px;
+}
