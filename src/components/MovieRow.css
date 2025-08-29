@@ -1,9 +1,13 @@
+
 .movie-row {
   display: flex;
   gap: 15px;
-  overflow-x: auto;
-  padding-bottom: 10px;
+  overflow-x: auto;    /* horizontal scroll for this row only */
+  overflow-y: hidden;  /* prevent vertical scroll inside */
+  padding: 10px 0;
   scroll-behavior: smooth;
+  width: 100%;         /* ensure it stays within parent */
+  box-sizing: border-box;
 }
 
 .movie-row::-webkit-scrollbar {
@@ -11,18 +15,43 @@
 }
 
 .movie-card {
-  min-width: 150px;
-  max-width: 150px;
-  border: none;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
+  min-width: 300px;
+  max-width: 300px;
+  flex-shrink: 0; /* prevent shrinking */
 }
 
-.movie-card:hover {
-  transform: scale(1.1);
-  cursor: pointer;
+
+.movie-card:hover .movie-poster {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  z-index: 5;
 }
+
 
 .movie-poster {
+  height: 350px;        /* big poster */
+  object-fit: cover;    /* no stretching */
   border-radius: 8px;
 }
+
+.movie-card .card-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6px;
+}
+
+.movie-card .card-title {
+  font-size: 0.95rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.custom-modal {
+  max-width: 500px !important;
+  margin: auto;
+}
+
